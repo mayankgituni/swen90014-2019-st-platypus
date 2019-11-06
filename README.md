@@ -1,6 +1,5 @@
 # Installation Guide
 
-## Introduction
 This is a build and deployment system of the stimuli website and web application. 
 This script can be used to deploy the latest software created by the team ST-Platypus 
 from the docker hub; or make changes, build and deploy the system when ready for production.
