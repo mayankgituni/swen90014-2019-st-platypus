@@ -2,7 +2,9 @@
 
 In the project directory, you can run test the webApp by running the following command:
 
-### `yarn start`
+### Steps:
+1. yarn install or npm install
+2. yarn start
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
