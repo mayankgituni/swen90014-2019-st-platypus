@@ -1,4 +1,4 @@
-### 'Installation Guide'
+# Installation Guide
 
 ## Introduction
 This is a build and deployment system of the stimuli website and web application. 
@@ -10,14 +10,14 @@ from the docker hub; or make changes, build and deploy the system when ready for
 2. Install docker-compose using - "https://docs.docker.com/compose/install/"
 3. Make sure that the host machine can run shell commands.
 
-# Additional options to setup security for Ubuntu operating system
+## Additional options to setup security for Ubuntu operating system
 The user can use the system to setup the Nginx and SSL certificate to secure the system and 
 provide reverse proxy to direct the traffic from http to https. However the installation is 
 only valid for the linux based system(Ubuntu). User with any other operating system should
 manage the securiy and routing of the port according to their convenience and Requirements;
 the system without the security will run on the localhost:50000.
 
-# Steps to Build/Deploy the Stimuli system
+## Steps to Build/Deploy the Stimuli system
 Notes: Make sure the Requirements of the system is fullfiled before proceeding.
 
 1. run "git clone https://bitbucket.cis.unimelb.edu.au:8445/scm/swen900142019stplatypus/swen90014-2019-st-platypus.git"
@@ -26,7 +26,7 @@ Notes: Make sure the Requirements of the system is fullfiled before proceeding.
 4. run "./system-manager.sh"
 5. Follow the instructions to deploy, build and manage the stimuli server.
 
-# Test code is under the "test" branch
+## Test code is under the "test" branch
 1. clone the test code : run "git clone -b test https://bitbucket.cis.unimelb.edu.au:8445/scm/swen900142019stplatypus/swen90014-2019-st-platypus.git"
 
 **[Note]: The user can deploy the whole system with just 2 files(docker-compose.yml and system-manager.sh). However,
