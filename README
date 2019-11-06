@@ -1,11 +1,11 @@
-# Installation Guide
+### Installation Guide
 
-# Introduction
+## Introduction
 This is a build and deployment system of the stimuli website and web application. 
 This script can be used to deploy the latest software created by the team ST-Platypus 
 from the docker hub; or make changes, build and deploy the system when ready for production.
 
-# Requirements
+## Requirements
 1. Install docker using - "https://docs.docker.com/v17.09/docker-for-mac/install/"
 2. Install docker-compose using - "https://docs.docker.com/compose/install/"
 3. Make sure that the host machine can run shell commands.
