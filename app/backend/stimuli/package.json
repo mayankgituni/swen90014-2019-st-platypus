@@ -1,0 +1,41 @@
+{
+  "name": "stimuli",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.5.1",
+    "@material-ui/icons": "^4.4.3",
+    "konva": "^4.0.14",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-konva": "^16.8.7-0",
+    "react-scripts": "3.2.0",
+    "react-timer-hook": "^1.1.7",
+    "use-image": "^1.0.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:50000",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^2.1.2"
+  }
+}

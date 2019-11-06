@@ -1,0 +1,260 @@
+POST /SignUp
+INPUT 
+{
+	"firstName": "Ball",
+	"lastName": "Lol",
+	"email": "balllol@mayank.com",
+	"password": "123454321",
+	"type": "Practitioner",
+	"institute": "unimelb"
+}
+OUTPUT
+OK
+
+GET /SignIn
+
+OK
+
+GET /
+
+OK
+
+GET /ErrorPage
+
+NOT FOUND
+
+GET /login
+INPUT
+{
+	"email": "balllol@mayank.com",
+	"password": "123454321"
+}
+
+OUTPUT
+[
+    {
+        "user_id": 5,
+        "firstName": "Ball",
+        "lastName": "Lol",
+        "email": "balllol@mayank.com",
+        "description": null,
+        "account": null,
+        "password": "123454321",
+        "institute": "unimelb",
+        "type": "PRACTITIONER",
+        "age": null
+    }
+]
+
+GET /EditProfile
+INPUT
+{
+    "firstName": "Mall",
+    "lastName": "Lol",
+    "email": "balllol@mayank.com",
+    "description": "Some description",
+    "account": null,
+    "password": "123454321",
+    "institute": "unimelb",
+    "type": "PRACTITIONER",
+    "age": 23
+}
+
+OUTPUT
+OK
+
+GET /user/AddPatient/1
+INPUT
+{
+    "name": "Lollolpaul",
+    "email": "lollolpaul@mayank.com",
+    "gender": "Male",
+    "age": 23,
+    "next_appointment_time": "11pm"
+}
+
+OUTPUT
+OK
+
+PUT /user/EditPatient/1/2
+INPUT
+{
+    "name": "Paul",
+    "email": "lollolpaul@mayank.com",
+    "gender": "Male",
+    "age": 35,
+    "nextAppointmentTime": "11pm"
+}
+
+OUTPUT
+OK
+
+GET /user/ListPatients/1
+OUTPUT
+[
+    {
+        "practitioner_id": 1,
+        "patient_id": 1,
+        "name": "Moon",
+        "email": "moon@gmail.com",
+        "gender": "female",
+        "age": 34,
+        "next_appointment_time": null
+    },
+    {
+        "practitioner_id": 1,
+        "patient_id": 2,
+        "name": "Paul",
+        "email": "lollolpaul@mayank.com",
+        "gender": "male",
+        "age": 35,
+        "next_appointment_time": "11pm"
+    }
+]
+
+GET /user/DeletePatient/1/2
+OUTPUT
+
+OK
+
+POST /preset/AddPreset/1
+INPUT
+
+{
+	"dynamicAttributes":"some attributes",
+	"privacy":1,
+	"timed":1,
+	"countdownTimes":20,
+	"rows":30,
+	"nodesPerRow":30,
+	"numberOfTargets":4,
+	"percentageOfTargets":24.00,
+	"numberOfTrails":23,
+	"singleShapeOnScreen":1,
+	"percentageOfNearDistractorShapes":23.00,
+	"percentageOfFarDistractorShapes":34.00
+}
+
+OUTPUT
+
+OK
+
+PUT /preset/EditPreset/1/3
+INPUT
+
+{
+	"dynamicAttributes":"some attributes",
+	"privacy":1,
+	"timed":1,
+	"countdownTimes":10,
+	"rows":10,
+	"nodesPerRow":20,
+	"numberOfTargets":3,
+	"percentageOfTargets":24.00,
+	"numberOfTrails":40,
+	"singleShapeOnScreen":1,
+	"percentageOfNearDistractorShapes":23.00,
+	"percentageOfFarDistractorShapes":34.00
+}
+
+OUTPUT
+OK
+
+GET /preset/ListPresets/1
+OUTPUT
+[
+    {
+        "user_id": 1,
+        "preset_id": 1,
+        "dynamic_attributes": "",
+        "privacy": 0,
+        "timed": 0,
+        "countdown_times": 30,
+        "rows": 30,
+        "nodes_per_row": 30,
+        "number_of_targets": 4,
+        "percentage_of_targets": 23.1,
+        "number_of_trails": 3,
+        "date": "",
+        "single_shape_on_screen": 0,
+        "percentage_of_near_distractor_shapes": 1,
+        "percentage_of_far_distractor_shapes": 100
+    },
+    {
+        "user_id": 1,
+        "preset_id": 3,
+        "dynamic_attributes": "some attributes",
+        "privacy": 1,
+        "timed": 1,
+        "countdown_times": 10,
+        "rows": 10,
+        "nodes_per_row": 20,
+        "number_of_targets": 3,
+        "percentage_of_targets": 24,
+        "number_of_trails": 40,
+        "date": "2019-10-2 19:3:3",
+        "single_shape_on_screen": 1,
+        "percentage_of_near_distractor_shapes": 23,
+        "percentage_of_far_distractor_shapes": 34
+    }
+]
+
+GET /preset/DeletePreset/1/3
+OUTPUT
+OK
+
+POST /test/AddTest/1/1
+INPUT
+{
+	"testName":"newtest",
+	"description":"random description"
+}
+
+OUTPUT
+webApp/efmv4xo47XCRcOaYmFszuQ==
+
+PUT /test/EditTest
+INPUT
+{
+	"testId":"efmv4xo47XCRcOaYmFszuQ==",
+	"testName":"newtest",
+	"description":"random description"
+}
+
+OUTPUT
+OK
+
+GET /test/ListTests/1
+OUTPUT
+[
+    {
+        "test_id": "b207qf7GWgD0JQda/SCdSQ==",
+        "user_id": 1,
+        "test_name": "braintest",
+        "description": "testing the brain",
+        "preset_id": 1,
+        "url_link": "webApp/b207qf7GWgD0JQda/SCdSQ==",
+        "generate_time": null,
+        "last_updated": null
+    },
+    {
+        "test_id": "efmv4xo47XCRcOaYmFszuQ==",
+        "user_id": 1,
+        "test_name": "newtest",
+        "description": "random description",
+        "preset_id": 1,
+        "url_link": "webApp/efmv4xo47XCRcOaYmFszuQ==",
+        "generate_time": "20:21:45",
+        "last_updated": "2019-10-2 20:28:47"
+    }
+]
+
+GET /test/DeleteTest
+INPUT
+{
+	"testId":"efmv4xo47XCRcOaYmFszuQ=="
+}
+
+OUTPUT
+OK
+

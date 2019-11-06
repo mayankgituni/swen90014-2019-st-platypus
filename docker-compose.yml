@@ -1,0 +1,43 @@
+version: '3.5'
+
+# Define services
+services:
+  # App backend service
+  app-server:
+    image: mayanktomar/stimuli-app-server:latest
+    restart: always
+    build:  # Configuration for building the docker image for the backend service
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "50000:50000" # Forward the exposed port 50000 on the container to port 50000 on the host machine
+    depends_on:
+      - mysql
+    networks: 
+      - stimuli-net
+
+  # Database Service (Mysql)
+  mysql:
+    image: mysql:5.7
+    restart: always
+    container_name: mysql # also used as a hostname of the container
+    networks:
+      - stimuli-net
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - db-data:/var/lib/mysql  # Needs to be changed to a desired location, this needs to be working
+    environment:  # Setup the mysql server with user and password information
+      MYSQL_DATABASE: 'stimuli_db'
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: 'Stimuli@12345'
+      MYSQL_ROOT_PASSWORD: 'Stimuli@12345'
+    
+volumes:
+  db-data:
+
+networks:
+  stimuli-net:
+    driver: bridge

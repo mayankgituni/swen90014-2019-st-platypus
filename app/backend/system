@@ -1,0 +1,110 @@
+#!/bin/bash
+
+if [[ $# != 1 ]]; then
+  # Invalid Usage error message!
+  echo "Invalid use of system manager. Try to execute the command->./system --help"
+fi
+
+if [[ $1 = "--help" ]]; then
+  #Helper case
+  echo "Pick from: [status| start | stop | restart | restart | reload | delete | inodemod | rnodemod | build]"
+fi
+
+if [[ $1 = "status" ]]; then
+  # Start all applications
+  pm2-runtime list
+fi
+
+if [[ $1 = "start" ]]; then
+  # Start all applications
+  cd /app/backend/webServer/server
+  pm2-runtime start ecosystem.config.js
+  cd ../../
+  echo "System running.."
+fi
+
+if [[ $1 = "stop" ]]; then
+  cd /app/backend/webServer/server
+  # Stop all
+  pm2-runtime stop ecosystem.config.js
+  echo "System stoping.."
+  
+fi
+
+if [[ $1 = "restart" ]]; then
+  cd /app/backend/webServer/server
+  ## Restart all the applications
+  pm2-runtime restart ecosystem.config.js
+  echo "System restarting.."
+fi
+
+
+if [[ $1 = "reload" ]]; then
+  cd /app/backend/webServer/server
+  # Reload all the applications
+  pm2-runtime reload ecosystem.config.js
+  echo "System reloading.."
+fi
+
+if [[ $1 = "delete" ]]; then
+  cd webServer/server
+  # Delete all the appliactions
+  pm2-runtime delete ecosystem.config.js
+  echo "System deleteing.."
+fi
+
+if [[ $1 = "inodemod" ]]; then
+  # install all the node_modules in front and back end
+  cd /app/frontend
+  yarn
+
+  cd /app/backend/
+  npm install
+
+fi
+
+if [[ $1 = "rnodemod" ]]; then
+  # re-install all the node_modules in front and back end
+  cd /app/frontend
+  rm -rf node_modules
+  rm yarn.lock
+  yarn
+
+  cd /app/backend/
+  rm -rf node_modules
+  rm package-lock.json
+  npm install
+
+  echo "Node modules installed.."
+fi
+
+if [[ $1 = "build" ]]; then
+  # Builds the frontend
+  cd /app/frontend
+  yarn build
+  
+  cd /app/backend/stimuli
+  yarn build
+  echo "System has built.."
+fi
+
+if [[ $1 = "dbinit" ]]; then
+  # Builds the database
+  cd /app/backend/database
+  node database.js
+
+  echo "Database initilized.."
+fi
+
+if [[ $1 = "sysinit" ]]; then
+  echo "Database initilized.."
+  pm2-runtime delete all
+  # Builds the database
+  cd /app/backend/database
+  node database.js
+  echo "Database initilized.."
+
+  cd /app/backend/webServer/server
+  pm2-runtime start ecosystem.config.js
+  echo "Server started.."
+fi
